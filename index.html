@@ -2,82 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Malla Curricular - Derecho USAT</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; }
-    h1, h2 { color: #2c3e50; }
-    .ciclo { margin-bottom: 30px; padding: 15px; background: #ecf0f1; border-radius: 10px; }
-    .curso {
-      padding: 10px; margin: 8px 0; border-radius: 5px;
-      border-left: 8px solid #bbb; background: #ffffff;
-    }
-    .aprobado { border-color: #2ecc71; background: #eafaf1; text-decoration: line-through; }
-    .en-curso { border-color: #f1c40f; background: #fef9e7; }
-    .pendiente { border-color: #e74c3c; background: #fdecea; }
-    small { display: block; color: #7f8c8d; margin-top: 3px; }
-    .contador {
-      background: #dbeafe;
-      padding: 10px;
-      border: 2px solid #60a5fa;
-      border-radius: 10px;
-      margin: 20px 0;
-      font-weight: bold;
-    }
-    .filtro {
-      margin-bottom: 20px;
-    }
-    .filtro button {
-      margin-right: 10px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background-color: #d1d5db;
-      cursor: pointer;
-    }
-    .filtro button:hover {
-      background-color: #9ca3af;
-    }
-  </style>
+  <title>Malla Curricular Derecho</title>
+  <link rel="stylesheet" href="estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Malla Curricular - Derecho USAT (Plan 2008)</h1>
-
-  <div class="contador" id="contador"></div>
-
-  <div class="filtro">
-    <button onclick="filtrarCursos('todos')">Mostrar todos</button>
-    <button onclick="filtrarCursos('aprobado')">Aprobados</button>
-    <button onclick="filtrarCursos('en-curso')">En curso</button>
-    <button onclick="filtrarCursos('pendiente')">Pendientes</button>
-  </div>
-
-  <!-- El resto del contenido continúa como en el canvas -->
-  <!-- Para simplificar, aquí asumimos que está todo completo hasta el </body> -->
-
-  <p><strong>Colores:</strong> 🟢 Aprobado | 🟡 En curso | 🔴 Pendiente</p>
-  <p>Edita este archivo cambiando la clase del curso para marcar tu avance: <code>class="curso aprobado"</code>, etc.</p>
-
-  <script>
-    function contarCreditos() {
-      let total = 0;
-      document.querySelectorAll('.curso.aprobado').forEach(curso => {
-        const match = curso.innerText.match(/(\d+)\s*créditos/);
-        if (match) total += parseInt(match[1]);
-      });
-      document.getElementById('contador').textContent = 'Total de créditos aprobados: ' + total;
-    }
-
-    function filtrarCursos(tipo) {
-      document.querySelectorAll('.curso').forEach(curso => {
-        if (tipo === 'todos') {
-          curso.style.display = 'block';
-        } else {
-          curso.style.display = curso.classList.contains(tipo) ? 'block' : 'none';
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', contarCreditos);
-  </script>
+  <h1>Malla Curricular - Derecho</h1>
+  <div id="malla"></div>
+  <script src="script.js"></script>
 </body>
 </html>
